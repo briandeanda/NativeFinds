@@ -6,6 +6,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
 import { HomeModule } from "./components/home/home.module"
+import { CoreModule } from './core/core.module';
 
 // Function for setting the default restangular configuration
 export function RestangularConfigFactory (RestangularProvider) {
@@ -21,6 +22,7 @@ export function RestangularConfigFactory (RestangularProvider) {
         NativeScriptModule,
         AppRoutingModule,
         HomeModule,
+        CoreModule,
         RestangularModule.forRoot(RestangularConfigFactory),
     ],
     declarations: [
