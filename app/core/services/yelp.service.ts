@@ -12,6 +12,6 @@ export class YelpService implements IYelpService {
     constructor(private restangular: Restangular) {  }
 
     getBusinessByName(name: string): Observable<IYelp> {
-        return this.restangular.one(`/businesses/search?term=${name}&latitude=36.696130&longitude=-121.619065`).get();
+        return this.restangular.one(`/businesses/search?term=${name}&categories=food,All&latitude=36.696130&longitude=-121.619065`).get();
     }
 }

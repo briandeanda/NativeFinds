@@ -1,15 +1,28 @@
 <ActionBar class="action-bar">
-    <Label class="action-bar-title" text="Home"></Label>
+    <Label class="action-bar-title" text="NativeFinds"></Label>
 </ActionBar>
 
 <StackLayout class="page">
-    <TextField hint="Enter text" autocorrect="false" (textChange)="search($event)" (returnPress)="onReturn($event)" class="input input-border"></TextField>
+    <TextField hint="Find something new..." autocorrect="false" (textChange)="search($event)" class="input input-border search"></TextField>
     <ActivityIndicator #activityIndicator [busy]="isLoading" [visibility]="isLoading?'visible':'collapse'" width="100" height="100" class="activity-indicator"></ActivityIndicator>
     <ListView [items]="results" (itemTap)="onItemTap($event)" class="list-group">
-        <ng-template let-business="item" >
-            <StackLayout orientation="horizontal" class="list-group-item">
-                <Label text="Business: " textWrap="true"></Label>
-                <Label [text]="business.name"></Label>
+        <ng-template let-business="item" horizontal-align="center">
+            <StackLayout class="business-item business-platform">
+                <Label [text]="business.name" textWrap="true" class="business-name"></Label>
+                <StackLayout orientation="horizontal" class="list-group-item">
+                    <StackLayout orientation="horizontal" style="width: 35%">
+                        <Label text="Rating:" ></Label>
+                        <Label [text]="business.rating" textWrap="true"></Label>
+                    </StackLayout>
+                    <StackLayout orientation="horizontal" style="width: 35%">
+                        <Label text="Reviews:" ></Label>
+                        <Label [text]="business.review_count" textWrap="true" ></Label>
+                    </StackLayout>
+                    <StackLayout orientation="horizontal" style="width: 35%">
+                        <Label text="Price:" ></Label>
+                        <Label [text]="business.price" textWrap="true"></Label>
+                    </StackLayout>
+                </StackLayout>
             </StackLayout>
         </ng-template>
     </ListView>

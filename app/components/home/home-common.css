@@ -1,0 +1,14 @@
+.search {
+  padding: 15;
+  font-size: 30;
+  background-color: #EF9A9A;
+}
+
+.business-name {
+  font-size: 20;
+  font-weight: bold;
+}
+
+.business-item {
+  text-align: center;
+}
